@@ -4,7 +4,6 @@
  *
  * @version 0.0.1
  * @author technote-space
- * @since 0.0.1
  * @copyright technote-space All Rights Reserved
  * @license http://www.opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2
  * @link https://technote.space
@@ -67,8 +66,8 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	 */
 	/** @noinspection PhpUnusedPrivateMethodInspection */
 	private function setup_settings() {
-		if ( defined( 'WP_FRAMEWORK_MOCK_REST_REQUEST' ) && WP_FRAMEWORK_MOCK_REST_REQUEST ) {
-			$this->setting->remove_setting( 'use_admin_ajax' );
+		if ( $this->app->utility->definedv( 'WP_FRAMEWORK_MOCK_REST_REQUEST' ) ) {
+			$this->app->setting->remove_setting( 'use_admin_ajax' );
 		}
 		if ( $this->is_empty() ) {
 			$this->app->setting->remove_setting( 'use_admin_ajax' );
@@ -275,10 +274,7 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 			return new \WP_Error( 'rest_no_route', __( 'No route was found matching the URL and request method' ), [ 'status' => 404 ] );
 		}
 
-		if ( in_array( $this->app->input->method(), [
-			'GET',
-			'HEAD',
-		] ) ) {
+		if ( ! $this->app->input->is_post() ) {
 			$params = $this->app->input->get();
 		} else {
 			$params = $this->app->input->post();
