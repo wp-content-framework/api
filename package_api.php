@@ -29,6 +29,13 @@ class Package_Api extends Package_Base {
 	}
 
 	/**
+	 * @return bool
+	 */
+	protected function is_valid_view() {
+		return true;
+	}
+
+	/**
 	 * @return array
 	 */
 	public function get_configs() {
