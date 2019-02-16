@@ -37,7 +37,7 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	 * @return bool
 	 */
 	private function use_admin_ajax() {
-		return $this->apply_filters( 'use_admin_ajax', true );
+		return $this->app->utility->definedv( 'WP_FRAMEWORK_MOCK_REST_REQUEST' ) || $this->apply_filters( 'use_admin_ajax' );
 	}
 
 	/**
