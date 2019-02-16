@@ -2,7 +2,7 @@
 /**
  * WP_Framework_Api Classes Models Api
  *
- * @version 0.0.8
+ * @version 0.0.9
  * @author technote-space
  * @copyright technote-space All Rights Reserved
  * @license http://www.opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2
@@ -37,7 +37,7 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	 * @return bool
 	 */
 	private function use_admin_ajax() {
-		return $this->apply_filters( 'use_admin_ajax', true );
+		return $this->app->utility->definedv( 'WP_FRAMEWORK_MOCK_REST_REQUEST' ) || $this->apply_filters( 'use_admin_ajax' );
 	}
 
 	/**
