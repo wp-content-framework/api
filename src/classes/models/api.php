@@ -349,10 +349,14 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	 * @return array
 	 */
 	protected function get_namespaces() {
-		return [
-			$this->app->define->plugin_namespace . '\\Classes\\Controllers\\Api\\',
-			$this->get_package_namespace() . '\\Classes\\Controllers\\Api\\',
-		];
+		$namespaces = [ $this->app->define->plugin_namespace . '\\Classes\\Controllers\\Api\\' ];
+		foreach ( $this->app->get_packages() as $package ) {
+			foreach ( $package->get_api_namespaces() as $namespace ) {
+				$namespaces[] = $namespace;
+			}
+		}
+
+		return $namespaces;
 	}
 
 	/**
