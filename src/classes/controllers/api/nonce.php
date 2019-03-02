@@ -1,6 +1,6 @@
 <?php
 /**
- * WP_Framework_Api Classes Controller Api Base
+ * WP_Framework_Api Classes Controller Api Nonce
  *
  * @version 0.0.1
  * @author technote-space
