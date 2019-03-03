@@ -1,10 +1,10 @@
 <?php
 /**
- * WP_Framework_Presenter Views Include Script Api
+ * WP_Framework_Api Views Include Script Api
  *
  * @version 0.0.10
- * @author technote-space
- * @copyright technote-space All Rights Reserved
+ * @author Technote
+ * @copyright Technote All Rights Reserved
  * @license http://www.opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2
  * @link https://technote.space
  */
