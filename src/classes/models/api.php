@@ -143,7 +143,7 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 		if ( ! empty( $this->_use_apis ) ) {
 			$this->_use_apis['get_nonce'] = true;
 		}
-		/** @var \WP_Framework_Api\Traits\Controller\Api $api */
+		/** @var \WP_Framework_Api\Classes\Controllers\Api\Base $api */
 		foreach ( $this->get_api_controllers() as $api ) {
 			$name = $api->get_call_function_name();
 			if ( ! $this->_use_all_api && empty( $this->_use_apis[ $name ] ) ) {
@@ -376,7 +376,7 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 
 		$api_controllers = $this->get_class_list();
 		if ( ! $this->app->utility->doing_ajax() ) {
-			/** @var \WP_Framework_Api\Traits\Controller\Api $class */
+			/** @var \WP_Framework_Api\Classes\Controllers\Api\Base $class */
 			foreach ( $api_controllers as $name => $class ) {
 				if ( ! $class->is_valid() || ( is_admin() && $class->is_only_front() ) || ( ! is_admin() && $class->is_only_admin() ) ) {
 					unset( $api_controllers[ $name ] );
