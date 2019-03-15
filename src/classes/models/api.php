@@ -66,6 +66,9 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	 */
 	/** @noinspection PhpUnusedPrivateMethodInspection */
 	private function setup_settings() {
+		if ( ! is_admin() ) {
+			return;
+		}
 		if ( $this->app->utility->definedv( 'WP_FRAMEWORK_MOCK_REST_REQUEST' ) ) {
 			$this->app->setting->remove_setting( 'use_admin_ajax' );
 		}
@@ -429,6 +432,15 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	 */
 	public function is_empty() {
 		// 1 は nonce 更新用のライブラリ提供のAPI
-		return $this->get_loaded_count( false ) <= 1;
+
+		$cache = $this->cache_get( 'is_empty' );
+		if ( isset( $cache ) ) {
+			return $cache;
+		}
+
+		$result = $this->get_loaded_count() <= 1;
+		$this->cache_set( 'is_empty', $result );
+
+		return $result;
 	}
 }
