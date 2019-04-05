@@ -37,7 +37,7 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	 * @return bool
 	 */
 	private function use_admin_ajax() {
-		return $this->app->utility->definedv( 'WP_FRAMEWORK_MOCK_REST_REQUEST' ) || $this->apply_filters( 'use_admin_ajax' );
+		return $this->app->utility->defined( 'WP_FRAMEWORK_MOCK_REST_REQUEST' ) || $this->apply_filters( 'use_admin_ajax' );
 	}
 
 	/**
@@ -69,7 +69,7 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 		if ( ! is_admin() ) {
 			return;
 		}
-		if ( $this->app->utility->definedv( 'WP_FRAMEWORK_MOCK_REST_REQUEST' ) ) {
+		if ( $this->app->utility->defined( 'WP_FRAMEWORK_MOCK_REST_REQUEST' ) ) {
 			$this->app->setting->remove_setting( 'use_admin_ajax' );
 		}
 		if ( $this->is_empty() ) {
