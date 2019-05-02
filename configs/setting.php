@@ -31,7 +31,7 @@ return [
 				'check_referer_host'      => [
 					'label'   => 'Server host name which used to check referer host name.',
 					'default' => function ( $app ) {
-						/** @var \WP_Framework $app */
+						/** @var WP_Framework $app */
 						return $app->input->server( 'HTTP_HOST', '' );
 					},
 				],

@@ -11,6 +11,12 @@
 
 namespace WP_Framework_Api\Classes\Controllers\Api;
 
+use WP_Error;
+use WP_Framework_Api\Traits\Package;
+use WP_Framework_Core\Traits\Helper\Validate;
+use WP_REST_Request;
+use WP_REST_Response;
+
 if ( ! defined( 'WP_CONTENT_FRAMEWORK' ) ) {
 	exit;
 }
@@ -21,7 +27,7 @@ if ( ! defined( 'WP_CONTENT_FRAMEWORK' ) ) {
  */
 abstract class Base extends \WP_Framework_Controller\Classes\Controllers\Base implements \WP_Framework_Core\Interfaces\Helper\Validate {
 
-	use \WP_Framework_Core\Traits\Helper\Validate, \WP_Framework_Api\Traits\Package;
+	use Validate, Package;
 
 	/**
 	 * @return string
@@ -88,14 +94,14 @@ abstract class Base extends \WP_Framework_Controller\Classes\Controllers\Base im
 	}
 
 	/**
-	 * @param \WP_REST_Request|array $params
+	 * @param WP_REST_Request|array $params
 	 *
-	 * @return int|\WP_Error|\WP_REST_Response
+	 * @return int|WP_Error|WP_REST_Response
 	 */
 	public function callback(
 		/** @noinspection PhpUnusedParameterInspection */
 		$params
 	) {
-		return new \WP_REST_Response( null, 404 );
+		return new WP_REST_Response( null, 404 );
 	}
 }
