@@ -2,7 +2,7 @@
 /**
  * WP_Framework_Api Views Include Script Api
  *
- * @version 0.0.11
+ * @version 0.0.14
  * @author Technote
  * @copyright Technote All Rights Reserved
  * @license http://www.opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2
@@ -48,7 +48,7 @@ if ( ! defined( 'WP_CONTENT_FRAMEWORK' ) ) {
 				if ( this.functions[ func ] ) {
 					const setting = this.functions[ func ];
 					let url = this.endpoint;
-					if ( !this.is_admin_ajax ) {
+					if ( ! this.is_admin_ajax ) {
 						url += this.namespace + '/' + setting.endpoint;
 					} else {
 						if ( args instanceof FormData ) {
@@ -166,10 +166,10 @@ if ( ! defined( 'WP_CONTENT_FRAMEWORK' ) ) {
 				const xhr = window.ActiveXObject ? new ActiveXObject( 'Microsoft.XMLHTTP' ) : new XMLHttpRequest();
 
 				xhr.open( config.method, config.url, true );
-				if ( !( args instanceof FormData ) ) {
+				if ( ! ( args instanceof FormData ) ) {
 					xhr.setRequestHeader( 'Content-type', 'application/x-www-form-urlencoded' );
 				}
-				if ( !this.is_admin_ajax && !nonce_check ) {
+				if ( ! this.is_admin_ajax && ! nonce_check ) {
 					xhr.setRequestHeader( 'X-WP-Nonce', this.nonce );
 				}
 				xhr.onreadystatechange = function() {
