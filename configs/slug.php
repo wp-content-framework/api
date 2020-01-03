@@ -13,11 +13,9 @@ if ( ! defined( 'WP_CONTENT_FRAMEWORK' ) ) {
 }
 
 return [
-
 	// api namespace
 	'api_namespace' => '',
 
 	// api class
 	'api_class'     => '',
-
 ];

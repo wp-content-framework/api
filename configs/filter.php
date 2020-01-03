@@ -13,7 +13,6 @@ if ( ! defined( 'WP_CONTENT_FRAMEWORK' ) ) {
 }
 
 return [
-
 	'api' => [
 		'${prefix}app_initialized' => [
 			'setup_settings',
@@ -34,5 +33,4 @@ return [
 			'rest_pre_dispatch' => 999,
 		],
 	],
-
 ];

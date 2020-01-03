@@ -33,14 +33,14 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	use Loader, Presenter, Nonce, Package;
 
 	/**
-	 * @var bool $_use_all_api
+	 * @var bool $use_all_api
 	 */
-	private $_use_all_api = false;
+	private $use_all_api = false;
 
 	/**
-	 * @var string[] $_use_apis
+	 * @var string[] $use_apis
 	 */
-	private $_use_apis = [];
+	private $use_apis = [];
 
 	/**
 	 * @return bool
@@ -60,20 +60,21 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	 * @param bool $flag
 	 */
 	public function set_use_all_api_flag( $flag ) {
-		$this->_use_all_api = $flag;
+		$this->use_all_api = $flag;
 	}
 
 	/**
 	 * @param string $name
 	 */
 	public function add_use_api_name( $name ) {
-		$this->_use_apis[ $name ] = true;
+		$this->use_apis[ $name ] = true;
 	}
 
 	/**
 	 * setup settings
+	 * @noinspection PhpUnusedPrivateMethodInspection
+	 * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
 	 */
-	/** @noinspection PhpUnusedPrivateMethodInspection */
 	private function setup_settings() {
 		if ( ! is_admin() ) {
 			return;
@@ -90,13 +91,14 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 
 	/**
 	 * register script
+	 * @noinspection PhpUnusedPrivateMethodInspection
+	 * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
 	 */
-	/** @noinspection PhpUnusedPrivateMethodInspection */
 	private function register_script() {
 		if ( $this->app->utility->doing_ajax() ) {
 			return;
 		}
-		if ( ! $this->_use_all_api && empty( $this->_use_apis ) ) {
+		if ( ! $this->use_all_api && empty( $this->use_apis ) ) {
 			return;
 		}
 		if ( $this->use_admin_ajax() ) {
@@ -108,8 +110,9 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 
 	/**
 	 * register api for wp-json
+	 * @noinspection PhpUnusedPrivateMethodInspection
+	 * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
 	 */
-	/** @noinspection PhpUnusedPrivateMethodInspection */
 	private function register_rest_api() {
 		if ( $this->use_admin_ajax() || ! $this->app->utility->doing_ajax() ) {
 			return;
@@ -129,12 +132,14 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 
 	/**
 	 * register api for admin-ajax.php
+	 * @noinspection PhpUnusedPrivateMethodInspection
+	 * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
 	 */
-	/** @noinspection PhpUnusedPrivateMethodInspection */
 	private function register_ajax_api() {
 		if ( ! $this->use_admin_ajax() || ! $this->app->utility->doing_ajax() ) {
 			return;
 		}
+
 		foreach ( $this->get_api_controllers() as $api ) {
 			/** @var Base $api */
 			$action   = $this->get_api_namespace() . '_' . $api->get_endpoint();
@@ -152,13 +157,13 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	private function register_script_common( callable $get_view_params ) {
 		$functions = [];
 		$scripts   = [];
-		if ( ! empty( $this->_use_apis ) ) {
-			$this->_use_apis['get_nonce'] = true;
+		if ( ! empty( $this->use_apis ) ) {
+			$this->use_apis['get_nonce'] = true;
 		}
 		/** @var Base $api */
 		foreach ( $this->get_api_controllers() as $api ) {
 			$name = $api->get_call_function_name();
-			if ( ! $this->_use_all_api && empty( $this->_use_apis[ $name ] ) ) {
+			if ( ! $this->use_all_api && empty( $this->use_apis[ $name ] ) ) {
 				continue;
 			}
 			$functions[ $name ] = [
@@ -256,7 +261,11 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 		$errors = [];
 		foreach ( (array) $error->errors as $code => $messages ) {
 			foreach ( (array) $messages as $message ) {
-				$errors[] = [ 'code' => $code, 'message' => $message, 'data' => $error->get_error_data( $code ) ];
+				$errors[] = [
+					'code'    => $code,
+					'message' => $message,
+					'data'    => $error->get_error_data( $code ),
+				];
 			}
 		}
 
@@ -292,12 +301,41 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 			$params = $this->app->input->post();
 		}
 
-		$args           = $api->get_args_setting();
-		$required       = [];
-		$invalid_params = [];
-		$request        = new WP_REST_Request( $this->app->input->method() );
+		$request = new WP_REST_Request( $this->app->input->method() );
 		$request->set_query_params( wp_unslash( $this->app->input->get() ) );
 		$request->set_body_params( wp_unslash( $this->app->input->post() ) );
+
+		list( $params, $required, $invalid_params ) = $this->parse_args( $api->get_args_setting(), $params, $request );
+
+		if ( ! empty( $required ) ) {
+			/* translators: %s: missing parameters */
+			return new WP_Error( 'rest_missing_callback_param', sprintf( __( 'Missing parameter(s): %s' ), implode( ', ', $required ) ), [
+				'status' => 400,
+				'params' => $required,
+			] );
+		}
+
+		if ( $invalid_params ) {
+			/* translators: %s: missing parameters */
+			return new WP_Error( 'rest_invalid_param', sprintf( __( 'Invalid parameter(s): %s' ), implode( ', ', array_keys( $invalid_params ) ) ), [
+				'status' => 400,
+				'params' => $invalid_params,
+			] );
+		}
+
+		return $api->callback( $params );
+	}
+
+	/**
+	 * @param array $args
+	 * @param array $params
+	 * @param WP_REST_Request $request
+	 *
+	 * @return array
+	 */
+	private function parse_args( $args, $params, $request ) {
+		$required       = [];
+		$invalid_params = [];
 		foreach ( $args as $name => $setting ) {
 			if ( array_key_exists( 'default', $setting ) && ! array_key_exists( $name, $params ) ) {
 				$params[ $name ] = $setting['default'];
@@ -329,21 +367,7 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 			}
 		}
 
-		if ( ! empty( $required ) ) {
-			return new WP_Error( 'rest_missing_callback_param', sprintf( __( 'Missing parameter(s): %s' ), implode( ', ', $required ) ), [
-				'status' => 400,
-				'params' => $required,
-			] );
-		}
-
-		if ( $invalid_params ) {
-			return new WP_Error( 'rest_invalid_param', sprintf( __( 'Invalid parameter(s): %s' ), implode( ', ', array_keys( $invalid_params ) ) ), [
-				'status' => 400,
-				'params' => $invalid_params,
-			] );
-		}
-
-		return $api->callback( $params );
+		return [ $params, $required, $invalid_params ];
 	}
 
 	/**
@@ -405,8 +429,10 @@ class Api implements \WP_Framework_Core\Interfaces\Loader, \WP_Framework_Present
 	 * @param WP_REST_Request $request
 	 *
 	 * @return mixed
+	 * @noinspection PhpUnusedPrivateMethodInspection
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
 	 */
-	/** @noinspection PhpUnusedPrivateMethodInspection */
 	private function rest_pre_dispatch(
 		/** @noinspection PhpUnusedParameterInspection */
 		$result,

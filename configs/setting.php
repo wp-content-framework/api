@@ -13,7 +13,6 @@ if ( ! defined( 'WP_CONTENT_FRAMEWORK' ) ) {
 }
 
 return [
-
 	'999' => [
 		'Others' => [
 			'10' => [
@@ -37,5 +36,4 @@ return [
 			],
 		],
 	],
-
 ];

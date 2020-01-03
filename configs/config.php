@@ -13,8 +13,6 @@ if ( ! defined( 'WP_CONTENT_FRAMEWORK' ) ) {
 }
 
 return [
-
 	// api version
 	'api_version' => 'v1',
-
 ];

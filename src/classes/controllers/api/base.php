@@ -31,17 +31,17 @@ abstract class Base extends \WP_Framework_Controller\Classes\Controllers\Base im
 	/**
 	 * @return string
 	 */
-	public abstract function get_endpoint();
+	abstract public function get_endpoint();
 
 	/**
 	 * @return string
 	 */
-	public abstract function get_call_function_name();
+	abstract public function get_call_function_name();
 
 	/**
 	 * @return string
 	 */
-	public abstract function get_method();
+	abstract public function get_method();
 
 	/**
 	 * @return array
@@ -96,6 +96,7 @@ abstract class Base extends \WP_Framework_Controller\Classes\Controllers\Base im
 	 * @param WP_REST_Request|array $params
 	 *
 	 * @return int|WP_Error|WP_REST_Response
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public function callback(
 		/** @noinspection PhpUnusedParameterInspection */

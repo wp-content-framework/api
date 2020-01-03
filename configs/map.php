@@ -13,7 +13,5 @@ if ( ! defined( 'WP_CONTENT_FRAMEWORK' ) ) {
 }
 
 return [
-
 	'api' => '\WP_Framework_Api\Classes\Models\Api',
-
 ];
