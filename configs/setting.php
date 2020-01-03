@@ -2,7 +2,6 @@
 /**
  * WP_Framework_Api Configs Setting
  *
- * @version 0.0.14
  * @author Technote
  * @copyright Technote All Rights Reserved
  * @license http://www.opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2
@@ -14,7 +13,6 @@ if ( ! defined( 'WP_CONTENT_FRAMEWORK' ) ) {
 }
 
 return [
-
 	'999' => [
 		'Others' => [
 			'10' => [
@@ -38,5 +36,4 @@ return [
 			],
 		],
 	],
-
 ];

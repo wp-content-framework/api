@@ -2,7 +2,6 @@
 /**
  * WP_Framework_Api Classes Controller Api Nonce
  *
- * @version 0.0.14
  * @author Technote
  * @copyright Technote All Rights Reserved
  * @license http://www.opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2
@@ -56,7 +55,7 @@ class Nonce extends Base {
 		}
 		$referer = $this->app->input->server( 'HTTP_REFERER' );
 		if ( $referer ) {
-			$referer = parse_url( $referer );
+			$referer = wp_parse_url( $referer );
 			$referer = false === $referer ? null : $referer['host'];
 		}
 		if ( $referer ) {
@@ -76,7 +75,7 @@ class Nonce extends Base {
 	 */
 	public function callback( $params ) {
 		global $current_user;
-		$current_user = null;
+		$current_user = null; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 
 		/** @var Api $api */
 		$api = Api::get_instance( $this->app );
