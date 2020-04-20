@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: 0 17 * * 4
+    - cron: 53 17 * * 1
   pull_request:
     types: [opened, reopened, closed]
   repository_dispatch:
@@ -9,7 +9,6 @@ on:
 name: Update dependencies
 
 env:
-  CI: 1
   GITHUB_ACTION: 1
   WORKSPACE: ${{ github.workspace }}
 
@@ -17,6 +16,7 @@ jobs:
   update:
     name: Update dependencies
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: technote-space/auto-cancel-redundant-job@v1
         with:
