@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "346135a8afbe506cc946a7f0e0abd74d",
+    "content-hash": "fb1074320c312eac11720fc1ef69c1e7",
     "packages": [
         {
             "name": "matthiasmullie/minify",
@@ -117,16 +117,16 @@
         },
         {
             "name": "wp-content-framework/controller",
-            "version": "v1.0.4",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-content-framework/controller.git",
-                "reference": "bd1de7674719d6b211279310938e489199596b92"
+                "reference": "d3f8807f7fb1d2cce7c28817cdb9646a22ed996f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-content-framework/controller/zipball/bd1de7674719d6b211279310938e489199596b92",
-                "reference": "bd1de7674719d6b211279310938e489199596b92",
+                "url": "https://api.github.com/repos/wp-content-framework/controller/zipball/d3f8807f7fb1d2cce7c28817cdb9646a22ed996f",
+                "reference": "d3f8807f7fb1d2cce7c28817cdb9646a22ed996f",
                 "shasum": ""
             },
             "require": {
@@ -138,7 +138,7 @@
                 "phpcompatibility/phpcompatibility-wp": "^2.1",
                 "phpmd/phpmd": "^2.8",
                 "squizlabs/php_codesniffer": "^3.5",
-                "wp-coding-standards/wpcs": "^2.2"
+                "wp-coding-standards/wpcs": "^2.3"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -164,20 +164,20 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-05-02T15:24:13+00:00"
+            "time": "2020-05-24T12:55:38+00:00"
         },
         {
             "name": "wp-content-framework/presenter",
-            "version": "v1.0.3",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-content-framework/presenter.git",
-                "reference": "ce75e1e8f21344ccf0c42519e20f17288b159d68"
+                "reference": "77961337ce953e6bf206a5cbac193256fb5832f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-content-framework/presenter/zipball/ce75e1e8f21344ccf0c42519e20f17288b159d68",
-                "reference": "ce75e1e8f21344ccf0c42519e20f17288b159d68",
+                "url": "https://api.github.com/repos/wp-content-framework/presenter/zipball/77961337ce953e6bf206a5cbac193256fb5832f8",
+                "reference": "77961337ce953e6bf206a5cbac193256fb5832f8",
                 "shasum": ""
             },
             "require": {
@@ -189,7 +189,7 @@
                 "phpcompatibility/phpcompatibility-wp": "^2.1",
                 "phpmd/phpmd": "^2.8",
                 "squizlabs/php_codesniffer": "^3.5",
-                "wp-coding-standards/wpcs": "^2.2"
+                "wp-coding-standards/wpcs": "^2.3"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -215,7 +215,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-05-02T08:09:00+00:00"
+            "time": "2020-05-20T14:26:01+00:00"
         }
     ],
     "packages-dev": [
@@ -990,16 +990,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.15.0",
+            "version": "v1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14"
+                "reference": "e94c8b1bbe2bc77507a1056cdb06451c75b427f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
-                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e94c8b1bbe2bc77507a1056cdb06451c75b427f9",
+                "reference": "e94c8b1bbe2bc77507a1056cdb06451c75b427f9",
                 "shasum": ""
             },
             "require": {
@@ -1011,7 +1011,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15-dev"
+                    "dev-master": "1.17-dev"
                 }
             },
             "autoload": {
@@ -1058,7 +1058,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-02-27T09:26:54+00:00"
+            "time": "2020-05-12T16:14:59+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -1120,16 +1120,16 @@
         },
         {
             "name": "wp-coding-standards/wpcs",
-            "version": "2.2.1",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress-Coding-Standards.git",
-                "reference": "b5a453203114cc2284b1a614c4953456fbe4f546"
+                "reference": "7da1894633f168fe244afc6de00d141f27517b62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress-Coding-Standards/zipball/b5a453203114cc2284b1a614c4953456fbe4f546",
-                "reference": "b5a453203114cc2284b1a614c4953456fbe4f546",
+                "url": "https://api.github.com/repos/WordPress/WordPress-Coding-Standards/zipball/7da1894633f168fe244afc6de00d141f27517b62",
+                "reference": "7da1894633f168fe244afc6de00d141f27517b62",
                 "shasum": ""
             },
             "require": {
@@ -1139,6 +1139,7 @@
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5 || ^0.6",
                 "phpcompatibility/php-compatibility": "^9.0",
+                "phpcsstandards/phpcsdevtools": "^1.0",
                 "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
             "suggest": {
@@ -1161,7 +1162,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2020-02-04T02:52:06+00:00"
+            "time": "2020-05-13T23:57:56+00:00"
         }
     ],
     "aliases": [],
