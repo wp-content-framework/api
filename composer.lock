@@ -117,16 +117,16 @@
         },
         {
             "name": "wp-content-framework/controller",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-content-framework/controller.git",
-                "reference": "d3f8807f7fb1d2cce7c28817cdb9646a22ed996f"
+                "reference": "464a5fb45e48bc65d6a04f991fc53d10212da50d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-content-framework/controller/zipball/d3f8807f7fb1d2cce7c28817cdb9646a22ed996f",
-                "reference": "d3f8807f7fb1d2cce7c28817cdb9646a22ed996f",
+                "url": "https://api.github.com/repos/wp-content-framework/controller/zipball/464a5fb45e48bc65d6a04f991fc53d10212da50d",
+                "reference": "464a5fb45e48bc65d6a04f991fc53d10212da50d",
                 "shasum": ""
             },
             "require": {
@@ -164,20 +164,20 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-05-24T12:55:38+00:00"
+            "time": "2020-06-02T05:13:44+00:00"
         },
         {
             "name": "wp-content-framework/presenter",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-content-framework/presenter.git",
-                "reference": "77961337ce953e6bf206a5cbac193256fb5832f8"
+                "reference": "64b47fde15dd7d9a5895c9ab40ed905a321de43b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-content-framework/presenter/zipball/77961337ce953e6bf206a5cbac193256fb5832f8",
-                "reference": "77961337ce953e6bf206a5cbac193256fb5832f8",
+                "url": "https://api.github.com/repos/wp-content-framework/presenter/zipball/64b47fde15dd7d9a5895c9ab40ed905a321de43b",
+                "reference": "64b47fde15dd7d9a5895c9ab40ed905a321de43b",
                 "shasum": ""
             },
             "require": {
@@ -215,22 +215,22 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-05-20T14:26:01+00:00"
+            "time": "2020-06-02T05:13:12+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "composer/xdebug-handler",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "1ab9842d69e64fb3a01be6b656501032d1b78cb7"
+                "reference": "fa2aaf99e2087f013a14f7432c1cd2dd7d8f1f51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/1ab9842d69e64fb3a01be6b656501032d1b78cb7",
-                "reference": "1ab9842d69e64fb3a01be6b656501032d1b78cb7",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/fa2aaf99e2087f013a14f7432c1cd2dd7d8f1f51",
+                "reference": "fa2aaf99e2087f013a14f7432c1cd2dd7d8f1f51",
                 "shasum": ""
             },
             "require": {
@@ -265,9 +265,17 @@
                 {
                     "url": "https://packagist.com",
                     "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
                 }
             ],
-            "time": "2020-03-01T12:26:26+00:00"
+            "time": "2020-06-04T11:16:35+00:00"
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
