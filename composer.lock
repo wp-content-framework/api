@@ -139,16 +139,16 @@
         },
         {
             "name": "wp-content-framework/controller",
-            "version": "v1.0.41",
+            "version": "v1.0.42",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-content-framework/controller.git",
-                "reference": "7a87b7e1731ab0b3b88b69b59e07794db1593d3e"
+                "reference": "166713600c9257c53f20f6b9140c285e6b7551e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-content-framework/controller/zipball/7a87b7e1731ab0b3b88b69b59e07794db1593d3e",
-                "reference": "7a87b7e1731ab0b3b88b69b59e07794db1593d3e",
+                "url": "https://api.github.com/repos/wp-content-framework/controller/zipball/166713600c9257c53f20f6b9140c285e6b7551e2",
+                "reference": "166713600c9257c53f20f6b9140c285e6b7551e2",
                 "shasum": ""
             },
             "require": {
@@ -182,7 +182,7 @@
             ],
             "support": {
                 "issues": "https://github.com/wp-content-framework/controller/issues",
-                "source": "https://github.com/wp-content-framework/controller/tree/v1.0.41"
+                "source": "https://github.com/wp-content-framework/controller/tree/v1.0.42"
             },
             "funding": [
                 {
@@ -190,20 +190,20 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-02-13T14:00:37+00:00"
+            "time": "2021-02-20T16:33:05+00:00"
         },
         {
             "name": "wp-content-framework/presenter",
-            "version": "v1.0.32",
+            "version": "v1.0.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-content-framework/presenter.git",
-                "reference": "dbdc509e7089cbe48efa217dd9f72582c874d032"
+                "reference": "bc6cc0461f68c645871728b7e7b4be9ff8931bf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-content-framework/presenter/zipball/dbdc509e7089cbe48efa217dd9f72582c874d032",
-                "reference": "dbdc509e7089cbe48efa217dd9f72582c874d032",
+                "url": "https://api.github.com/repos/wp-content-framework/presenter/zipball/bc6cc0461f68c645871728b7e7b4be9ff8931bf8",
+                "reference": "bc6cc0461f68c645871728b7e7b4be9ff8931bf8",
                 "shasum": ""
             },
             "require": {
@@ -237,7 +237,7 @@
             ],
             "support": {
                 "issues": "https://github.com/wp-content-framework/presenter/issues",
-                "source": "https://github.com/wp-content-framework/presenter/tree/v1.0.32"
+                "source": "https://github.com/wp-content-framework/presenter/tree/v1.0.33"
             },
             "funding": [
                 {
@@ -245,7 +245,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-02-08T06:44:42+00:00"
+            "time": "2021-02-22T05:05:29+00:00"
         }
     ],
     "packages-dev": [
@@ -1149,7 +1149,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -1208,7 +1208,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.22.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.22.1"
             },
             "funding": [
                 {
@@ -1228,7 +1228,7 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
@@ -1291,7 +1291,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.22.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.22.1"
             },
             "funding": [
                 {
